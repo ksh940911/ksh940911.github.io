@@ -1,0 +1,147 @@
+div {
+    padding: 0px;
+    border: 5px solid black;
+    padding-left: 141px;
+    padding-right: 141px;
+}
+
+#main {
+    width: 732px;
+    height: 800px;
+    margin: 0 auto;
+}
+
+#admin {
+    position: absolute;
+    top: 30px;
+    left: 210px;
+    font-size: 36px;
+    font-weight: 900;
+}
+#admin:hover {
+    color: white;
+    text-shadow: 0px 1px 20px white;
+}
+
+#introduce {
+    background-color: #f5f5f5;
+    width: 255px;
+    height: 250px;
+    float: left; 
+    padding : 40px;
+    margin : 10px 10px;
+    text-align: center;
+}
+#history {
+    background-color: #f5f5f5;
+    width: 255px;
+    height: 250px;
+    float: left; 
+    padding : 40px;
+    margin : 10px 10px;
+    text-align: center;
+}
+#trip {
+    background-color: #f5f5f5;
+    width: 255px;
+    height: 250px;
+    float: left; 
+    padding : 40px;
+    margin : 10px 10px;
+    text-align: center;
+}
+#roadmap {
+    background-color: #f5f5f5;
+    width: 255px;
+    height: 250px;
+    float: left; 
+    padding : 40px;
+    margin : 10px 10px;
+    text-align: center;
+}
+#signup {
+    clear: both;
+    padding: 10px;
+    margin: 11px;
+    height: 42px;
+    opacity: 0.8;
+    border: white;
+    box-shadow: 5px 5px 150px 10px black
+}
+
+img {
+    width: 35px;
+    height: 35px;
+}
+
+#signupimg {
+    width : 70px;
+    height: 40px;
+    transform: translate(450px, 1px);
+}
+
+nav {
+    margin: -38px;
+    margin-left: 545px;
+}
+
+ul#menu {
+  list-style-type : none; /* ul이 갖고있는 목록기호 없애버리기 */
+  padding-left : 0px; /* ul이 갖고있는 들여쓰기공간 없애버리기 */
+  margin: 0 auto;
+}
+
+ul#menu li {
+  float: left;  /*붕띄워서 ul왼쪽에 착 붙여버리기!*/
+  margin-right : 15px; /* 착 붙인거 요소간 간격주기*/
+}
+
+ul#menu li:hover {
+    opacity: 0.5;
+}
+#signupimg:hover {
+    opacity: 0.5;
+}
+
+.link {
+    text-decoration: none;
+}
+
+.screen1 {
+    width: 250px;
+    height: 200px;
+    padding: 0px;
+    overflow: hidden;
+    border: 0px white;
+    transform: translateY(0px);
+}
+
+.screen1:hover .move{
+    transform : translateY(0);
+    opacity: 1;
+    transition: all .9s ease-out;
+}
+
+.top {
+    transform: translateY(-200px);
+    opacity: 0;
+    color: gray;
+    font-weight: 800;
+    font-size: 35px;
+}
+
+.bottom {
+    transform:translateY(200px);
+    opacity: 0;
+    color: gray;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.icon {
+    opacity: 1;
+}
+
+.icon:hover {
+    opacity: 0.2;
+}

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>intro</title>
+    <script src="js/jquery-3.6.0.js"></script>
+    <script src="js/jquery.easing.1.3.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/introduce.css">
+</head>
+<body>
+
+    <div id="background">
+    
+    <!-- 메뉴 -->
+    <div class="tab_content"></div>
+    <input type="radio" name= "tabmenu" id="tab01">
+    <label for="tab01" id="lab1">profile</label>
+    
+    <input type="radio" name= "tabmenu"  id="tab02">
+    <label for="tab02" id="lab2">hobby</label>
+    
+    <input type="radio" name= "tabmenu"  id="tab03">
+    <label for="tab03" id="lab3">comment</label>
+  
+  
+    <!-- home -->
+     <section class="container">
+        <div class="buttons">
+            <a href="index.html" class="btn-1">
+                <img src="images/homewhite.png" id="home">
+            </a>    
+        </div>
+     </section>
+
+    <!-- 소메뉴 -->
+    <div class="conbox con1">
+
+        <div id="img_content">
+            <input type="radio" name="img_select" id="select_box1" checked>
+            <label for="select_box1"></label>
+            <input type="radio" name="img_select" id="select_box2" >
+            <label for="select_box2"></label>
+            <input type="radio" name="img_select" id="select_box3" >
+            <label for="select_box3"></label>
+
+            <div id="imgbox">
+                <div class="select_img select1">
+                    <img src="images/work2.jpg" alt="" width="450px" height="500px">
+                </div>
+                <div class="select_img select2">
+                    <img src="images/work1.jpg" alt="" width="450px" height="500px">
+                </div>
+                <div class="select_img select3">
+                    <img src="images/work3.jpg" alt="" width="450px" height="500px">
+                </div>
+            </div>
+        </div>
+     
+        <p id="info"> Kim sanghun(Eddie) <br>
+        1994.09.11<br> 
+        Tourism Management <br>
+        </p>
+
+    <!-- contact icon -->
+    <a href="https://github.com/ksh940911" title="깃허브" target="_blank"><img src="images/github.png" class="icon"></a>
+    <a href="https://velog.io/@kchief" title="벨로그" target="_blank"><img src="images/velog.jpg" class="icon"></a>
+    <a href="https://blog.naver.com/ksh940911" title="블로그" target="_blank"><img src="images/blog.jpg" class="icon"></a>
+    
+    </div>
+
+    <!-- hobbys -->
+    <div class="conbox con2">
+        <img class="image1" src="images/acadia2.jpg" onmouseover="this.src='images/acadia1.jpg'"
+        onmouseout="this.src='images/acadia2.jpg'">
+
+        <img class="image2" src="images/spectrum2.jpg" onmouseover="this.src='images/spectrum1.jpg'"
+        onmouseout="this.src='images/spectrum2.jpg'">
+
+        <img class="image3" src="images/wcd2.jpg" onmouseover="this.src='images/wcd1.jpg'"
+        onmouseout="this.src='images/wcd2.jpg'">
+
+        <img class="image4" src="images/umf1.jpg"onmouseover="this.src='images/umf2.jpg'"
+        onmouseout="this.src='images/umf1.jpg'">
+
+        <img class="image5" src="images/coldplay2.jpg" onmouseover="this.src='images/coldplay1.jpg'"
+        onmouseout="this.src='images/coldplay2.jpg'">
+
+        <img class="image6" src="images/honne1.jpg" onmouseover="this.src='images/honne2.jpg'"
+        onmouseout="this.src='images/honne1.jpg'">
+    </div>
+    
+
+    <div class="conbox con3">
+        <!-- 로드맵 탭 -->
+        <div class="roadmap"></div>
+        <div class="menu" id="fe">안녕하세요 김상훈입니다.</div>
+        <div class="content">
+            <ul>
+                <p>하고싶은말</p>
+                <li>교육과정이 반정도밖에 안남았는데</li>
+                <li>말씀나눠본분도 반정도밖에 안되네요..</li>
+                <li>다들 종강하기전에 친해졌으면 좋겠어요!</li>
+            </ul><br>
+
+            <ul>
+                <p>아무말</p>
+                <li>많이 모자른상태에서 만드느라</li>
+                <li>일주일간 3시간씩만 잤어요...</li>
+                <li>주말엔 12시간넘게 잘거에요!</li>
+            </ul><br>
+
+            <ul>
+                <p>PS</p>
+                <li>발표시간이 짧아서 기능위주로만 보여드릴거라</li>
+                <li>사진같은건 깃허브놀러오셔서 많이들봐주세요!</li>
+            </ul>
+        </div>
+    </div>
+    
+    <script>
+    $("div.menu").click(function(e){
+        $(this).next().slideToggle(1000,"easeOutBounce").siblings("p").slideUp(1000,"easeInBounce");
+    });
+    </script>
+</body> 
+</html>

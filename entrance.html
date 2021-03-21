@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/jquery-3.6.0.js"></script>
+    <link rel="stylesheet" href="css/entrance.css">
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+    <title>판도라의 상자</title>
+    <script>
+    var guardian = confirm("김상훈에게 초대받으셨습니까?")
+    function check() {
+        if(guardian != true){
+            alert("입장이 거절되었습니다.");
+            document.write("<h1>Rejected</h1>");
+            remove().check();
+        }
+    }
+    </script>
+</head>
+<body onload="check();">
+    <audio src="audio/key.mp3" autoplay></audio>
+    <audio id="afteraudio"></audio>
+    <div id="after">
+        <div class="step1">
+            <img src="images/box_close.jpg" class="boxclose">
+            <img src="images/box_open.jpg" class="boxopen">
+            <img src="images/box_key.png" class="boxkey">
+        </div>
+        <img id="afterimg"></img>
+    </div>
+    <div class="step2">
+        <a href="index.html" title="Enter" id="enter">
+            <img src="images/enter.PNG" id="enterimg">
+        </a>
+    </div>
+    <script>
+    $("body").hide(), guardian != false && $("body").show();
+    $(".boxkey").on('click', function(e){
+        $(".boxkey").css({
+            "animation-name" : "shaking",
+            "animation-duration" : "3s",
+        })
+        $(".boxclose").css({
+            "animation-name" : "boxshake",
+            "animation-duration" : "3s",
+        })
+        $("#afteraudio").attr("src", "audio/box.mp3")
+        document.getElementById("afteraudio").play()
+    })
+    $(".boxclose").on('click', function(e){
+        $("img").remove(".boxclose");
+        $("img").remove(".boxkey");
+        $("#afterimg").attr("src", "images/light.jpg")
+        $(".step2").delay(400).fadeIn(1200);
+        $("#afterimg").css({
+            "width" : "150px",
+            "height": "100px",
+            "top": "350px",
+            "left": "437px",
+            "opacity" : "0",
+            "position" : "absolute",
+            "z-index" : "5",
+            "animation-name" : "shining",
+            "animation-duration" : "0.4s",
+            "animation-delay" : "1.6s",
+            "animation-fillmode" : "backwards"
+        })
+        $("#enterimg").css({
+            "animation-name" : "twinkle",
+            "animation-duration" : "2s",
+            "animation-delay" : "6s",
+            "animation-iteration-count" : "infinite"
+        })
+        $(".step1").delay(401).fadeOut(0);
+        $(".step2").delay(400).fadeIn(1000).fadeOut(1000);
+        $("#enterimg").delay(8500).fadeIn(4500);
+        $(".step2").delay(2500).fadeIn(3000);
+    })
+    </script>
+</body>
+</html>

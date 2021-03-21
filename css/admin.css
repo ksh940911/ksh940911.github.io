@@ -1,0 +1,49 @@
+
+table ,th, td {
+  border: 3px solid rgb(175, 179, 187);
+  border-collapse: collapse;
+  padding: 10px;
+  margin-top: 20px;
+  text-align: center;
+  font-size: 18px;
+  color: rgb(82, 96, 103);
+  background-color: rgb(245, 239, 229);
+  
+}
+
+
+#tbl-entry {
+    margin-left: 33%;
+    position: fixed;
+    
+}
+
+#search1 {
+    margin-left: 50%;
+    background:#94a29c;
+    height: 40px;
+    width: 100px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 17px;
+    margin-left: 43%;
+    
+}
+
+#search2 {
+  /* margin-left: 50%; */
+  background:#94a29c;
+  height: 40px;
+  width: 100px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 17px;
+
+
+}
+
+

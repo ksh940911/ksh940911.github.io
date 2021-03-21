@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>history</title>
+    <link rel="stylesheet" href="css/history.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: url('./images/bginsta.jpg') center center/cover no-repeat fixed;
+        }
+    </style>
+</head>
+<body>
+    <!-- home -->
+    <section class="container">
+        <div class="buttons">
+            <a href="index.html" class="btn-1">
+                <img src="images/homeinsta.png" id="home">
+            </a>
+        </div>
+    </section>
+    <h1>회사원</h1>
+    <a href="history1.html" id="go_content">
+        <img src="images/go.png" id="go">
+    </a>
+    <div id="img_contentbig">
+        <div id="img_content">
+            <div class="slide_wrapper">
+                <ul class="slides">
+                    <li><img src="images/회사원/lj1.jpg" alt="" width="500px" height="500px"></li>
+                    <li><img src="images/회사원/lj2.jpg" alt="" width="500px" height="500px"></li>
+                    <li><img src="images/회사원/lj3.jpg" alt="" width="500px" height="500px"></li>
+                    <li><img src="images/회사원/lj4.jpg" alt="" width="500px" height="500px"></li>
+                    <li><img src="images/회사원/lj5.jpg" alt="" width="500px" height="500px"></li>
+                    <li><img src="images/회사원/lj6.jpg" alt="" width="500px" height="500px"></li>
+                    <li><img src="images/회사원/lj7.jpg" alt="" width="500px" height="500px"></li>
+                    <li><img src="images/회사원/lj8.jpg" alt="" width="500px" height="500px"></li>
+                    <li><img src="images/회사원/lj9.jpg" alt="" width="500px" height="500px"></li>
+                    <li><img src="images/회사원/lj10.jpg" alt="" width="500px" height="500px"></li>
+                    <li><img src="images/회사원/lj11.jpg" alt="" width="500px" height="500px"></li>
+                    <li><img src="images/회사원/lj12.jpg" alt="" width="500px" height="500px"></li>
+                    <li><img src="images/회사원/lj13.jpg" alt="" width="500px" height="500px"></li>
+                    <li><img src="images/회사원/lj14.jpg" alt="" width="500px" height="500px"></li>
+                    <li><img src="images/회사원/lj15.jpg" alt="" width="500px" height="500px"></li>
+                    <li><img src="images/회사원/lj16.jpg" alt="" width="500px" height="500px"></li>
+                    <li><img src="images/회사원/lj17.jpg" alt="" width="500px" height="500px"></li>
+                    <li><img src="images/회사원/lj18.jpg" alt="" width="500px" height="500px"></li>
+                    <li><img src="images/회사원/lj19.jpg" alt="" width="500px" height="500px"></li>
+                    <li><img src="images/회사원/lj20.jpg" alt="" width="500px" height="500px"></li>
+                    <li><img src="images/회사원/lj21.jpg" alt="" width="500px" height="500px"></li>
+                    <li><img src="images/회사원/lj22.jpg" alt="" width="500px" height="500px"></li>
+                    <li><img src="images/회사원/lj21.jpg" alt="" width="500px" height="500px"></li>
+                    <li><img src="images/회사원/lj22.jpg" alt="" width="500px" height="500px"></li>
+                </ul>
+            </div>
+        </div>
+        <p class="controls">
+            <span class="prev"><</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="next">></span>
+        </p>
+    </div>
+
+    <script>
+        //갤러리
+        var slides = document.querySelector('.slides'),
+            slide = document.querySelectorAll('.slides li'),
+            currentIdx = 0,
+            slideCount = slide.length,
+            prevBtn = document.querySelector('.prev'),
+            slideWidth = 500,
+            slideMargin = 40,
+            nextBtn = document.querySelector('.next');
+
+            slides.style.width = (slideWidth + slideMargin)*slideCount - slideMargin +'px';
+
+            // 옆으로 옮겨지는 함수
+            function moveSlide(num) {
+                slides.style.left = -num *530 + 'px';
+                currentIdx = num;
+            }
+            //next버튼
+            nextBtn.addEventListener('click', function(){
+                if(currentIdx < slideCount -3) { //옆으로 더 안넘어가게 -3
+                moveSlide(currentIdx + 1);
+                }else {
+                    moveSlide(0);
+                }
+            });
+
+            //prev버튼
+            prevBtn.addEventListener('click', function(){
+                if(currentIdx > 0) { 
+                moveSlide(currentIdx -1);
+                }else {
+                    moveSlide(slideCount - 3);
+                }
+            });
+    </script>
+</body>
+</html>

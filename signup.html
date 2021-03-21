@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>signup</title>
+    <script src="js/jquery-3.6.0.js"></script>
+    <link rel="stylesheet" href="css/signup.css">
+    
+</head>
+<body>
+    <div class="wrapper1">
+<div class="form-conteniar">
+    <form autocomplete="off" action="javascript:alert('회원가입 성공하셨습니다!!!'); this.memberJoinFrm.reset();" name="memberJoinFrm" >
+   
+        <div class="input">
+            <input type="text" placeholder="아이디(필수)" id="id" class="id" required>
+            
+        </div>
+      
+        <div class="input">
+            <input type="password" placeholder="비밀번호 (필수)" id="pw1" class="pw1" required>
+        </div>
+    
+        <div class="input">
+            <input type="password" placeholder="비밀번호 확인 (필수)" id="pw2" class="pw2" required>
+        </div>
+   
+        <div class="input">
+            <input type="text" placeholder="이름(필수): 한글만 입력하세요. " id="name" class="name" required>
+        </div>
+  
+        <div class="input">
+            <input type="text" placeholder="주소" id="address" class="address" >
+        </div>
+        
+        <div class="input">
+              <input class="button" type="submit" value="Signup" id="btn1" onclick="save();" >
+              
+        </div>
+       
+        
+    </form>
+    
+</div>
+</div>
+
+<script>
+  
+    function save(){
+      var entry = {
+        id: $("#id").val(),
+        pw1: $("#pw1").val(),
+        pw2: $("#pw2").val(),
+        name: $("#name").val(),
+        address: $("#address").val(),
+        date: Date.now()
+      };
+      console.log(entry);
+  
+
+      //배열생성
+      var entryList = JSON.parse(localStorage.getItem("entryList"));
+      console.log(entryList);
+  
+      //첫방명록인경우
+      if(entryList == null) entryList = [];
+  
+      entryList.push(entry);//js
+      var jsonStr = JSON.stringify(entryList);//json
+      localStorage.setItem("entryList", jsonStr);//json
+  
+      //테이블 갱신
+      displayEntry();
+  
+      //초기화
+      $("#id,#pw1,#pw2,#name,#address").val('');
+    
+  
+    }
+    </script>
+</body>
+</html>

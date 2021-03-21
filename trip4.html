@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>trip</title>
+    <link rel="stylesheet" href="css/trip4.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="menu">
+        <!-- home -->
+        <section class="container">
+            <div class="buttons">
+                <a href="index.html" class="btn-1">
+                    <img src="images/homegray.png" id="home">
+                </a>
+                <a href="trip1.html" class="btn-2" id="btncolor">&nbsp  BKI</a>    
+            </div>
+        </section>
+            
+        <div class="inner">
+            <!-- 영상 -->
+            <video id="video" preload="auto" autoplay loop muted>
+                <source src="video/fuk.mp4" type="video/mp4">
+            </video><br><br><br><br>
+            <!-- 지도 -->
+            <button id="locationBtn" onclick="btn1()">&nbsp;&nbsp;&nbsp;fukuoka</button>
+            <br><br><br><br>
+        </div> 
+        <div class="slide_wrapper">
+            <ul class="slides">
+                <li><img src="images/FUK/jp1.jpg" alt="" width="300px" height="300px"></li>
+                <li><img src="images/FUK/jp2.jpg" alt="" width="300px" height="300px"></li>
+                <li><img src="images/FUK/jp3.jpg" alt="" width="300px" height="300px"></li>
+                <li><img src="images/FUK/jp4.jpg" alt="" width="300px" height="300px"></li>
+                <li><img src="images/FUK/jp5.jpg" alt="" width="300px" height="300px"></li>
+                <li><img src="images/FUK/jp6.jpg" alt="" width="300px" height="300px"></li>
+                <li><img src="images/FUK/jp7.jpg" alt="" width="300px" height="300px"></li>
+                <li><img src="images/FUK/jp8.jpg" alt="" width="300px" height="300px"></li>
+                <li><img src="images/FUK/jp9.jpg" alt="" width="300px" height="300px"></li>
+                <li><img src="images/FUK/jp10.jpg" alt="" width="300px" height="300px"></li>
+                <li><img src="images/FUK/jp11.jpg" alt="" width="300px" height="300px"></li>
+                <li><img src="images/FUK/jp12.jpg" alt="" width="300px" height="300px"></li>
+                <li><img src="images/FUK/jp13.jpg" alt="" width="300px" height="300px"></li>
+                <li><img src="images/FUK/jp14.jpg" alt="" width="300px" height="300px"></li>
+                <li><img src="images/FUK/jp15.jpg" alt="" width="300px" height="300px"></li>
+                <li><img src="images/FUK/jp16.jpg" alt="" width="300px" height="300px"></li>
+                <li><img src="images/FUK/jp17.jpg" alt="" width="300px" height="300px"></li>
+                <li><img src="images/FUK/jp18.jpg" alt="" width="300px" height="300px"></li>
+                <li><img src="images/FUK/jp19.jpg" alt="" width="300px" height="300px"></li>
+                <li><img src="images/FUK/jp20.jpg" alt="" width="300px" height="300px"></li>
+            </ul>
+        </div>
+        <p class="controls">
+            <span class="prev">prev</span>
+            <span class="next">next</span>
+        </p>
+    </div>
+
+    <!-- 구글맵 iframe -->
+    <script>
+    window.btn1 = function() {
+        popup = document.createElement("div");
+        iframe = document.createElement("iframe");
+        closeBtn = document.createElement("button");
+       
+        iframe.src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2971530.514647082!2d131.03643460407054!3d33.49300880327882!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzTCsDI2JzIwLjAiTiAxMzDCsDE2JzM2LjAiRQ!5e1!3m2!1sko!2skr!4v1616108740829!5m2!1sko!2skr";
+        iframe.id = "view";
+        popup.id = "popup";
+        closeBtn.id = "closeBtn";
+        closeBtn.innerHTML = "close";
+       
+        popup.appendChild(iframe);
+        popup.appendChild(closeBtn);
+        document.body.appendChild(popup);
+    
+        //창 닫기
+        closeBtn.onclick = function() {
+        document.body.removeChild(popup);
+        }
+    };
+
+        //갤러리ㅡㅡㅡㅡㅡ
+        var slides = document.querySelector('.slides'),
+            slide = document.querySelectorAll('.slides li'),
+            currentIdx = 0,
+            slideCount = slide.length,
+            prevBtn = document.querySelector('.prev'),
+            slideWidth = 300,
+            slideMargin = 30,
+            nextBtn = document.querySelector('.next');
+
+            slides.style.width = (slideWidth + slideMargin)*slideCount - slideMargin +'px';
+
+            // 옆으로 옮겨지는 함수
+            function moveSlide(num) {
+                slides.style.left = -num *330 + 'px';
+                currentIdx = num;
+            }
+            //next버튼
+            nextBtn.addEventListener('click', function(){
+                if(currentIdx < slideCount -3) { //옆으로 더 안넘어가게 -3
+                moveSlide(currentIdx + 1);
+                }else {
+                    moveSlide(0);
+                }
+            });
+
+            //prev버튼
+            prevBtn.addEventListener('click', function(){
+                if(currentIdx > 0) { 
+                moveSlide(currentIdx -1);
+                }else {
+                    moveSlide(slideCount - 3);
+                }
+            });
+    
+    </script>
+
+</body>
+</html>

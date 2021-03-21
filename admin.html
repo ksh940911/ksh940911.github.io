@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>admin</title>
+    <script src="js/jquery-3.6.0.js"></script>
+    <link rel="stylesheet" href="css/admin.css">
+
+</head>
+<body>
+
+    <input type="button" value="회원조회" id="search1" onclick="displayEntry();">
+    <button id="search2" onclick="localStorage.clear();">전체삭제</button>
+    <table id="tbl-entry"></table>
+    <input type="text" id="searchName" placeholder="검색할 이름을 입력해주세요">
+    <input class="btn btn-primary" type="button" onclick="searchName();" value="검색">
+
+
+
+    
+    <script>
+ 
+  //전체회원조회
+  function displayEntry(){
+    var $table = $("#tbl-entry");
+    $table.html("<tr><th>아이디</th><th>비밀번호</th><th>비밀번호</th><th>이름</th><th>주소</th><th>가입날짜</th></tr>");
+
+    var entryList = JSON.parse(localStorage.getItem("entryList"));
+
+    $.each(entryList, function(i, entry){
+        console.log(i, entry);
+        var d = new Date(entry.date);
+        var tr = "<tr>" 
+               + "<td>" + entry.id + "</td>"
+               + "<td>" + entry.pw1 + "</td>"
+               + "<td>" + entry.pw2 + "</td>"
+               + "<td>" + entry.name + "</td>"
+               + "<td>" + entry.address + "</td>"
+               + "<td>" + (d.getMonth() + 1) + "/" + d.getDate()+ "</td>"
+               + "</tr>";
+        $table.append(tr);
+    });
+  }
+
+
+
+  </script>
+
+
+<script>
+  //이름검색해서 조회하기 
+  
+  function searchName() {
+    var $table = $("#tbl-entry");
+    var entryList = JSON.parse(localStorage.getItem("entryList"));
+    $table.html('');
+    var tr;
+    $.each(entryList, function (i, entry) {
+        console.log(i, entry);
+        var d = new Date(entry.date);
+        var name = entry.name;
+        if(name == $('#searchName').val()){
+            tr = "<tr>"
+              + "<td>" + entry.id + "</td>"
+               + "<td>" + entry.pw1 + "</td>"
+               + "<td>" + entry.pw2 + "</td>"
+               + "<td>" + entry.name + "</td>"
+               + "<td>" + entry.address + "</td>"
+             + "<td>" + (d.getMonth() + 1) + "/" + d.getDate() + "</td>"
+            + "</tr>";
+            return false;
+        }
+        else if(i == entryList.length-1){
+            tr="조회된 항목이 없습니다.";
+        }
+    });
+    $table.append(tr);
+}; 
+</script>
+
+    
+</body>
+</html>

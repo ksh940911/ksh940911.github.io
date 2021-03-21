@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>trip</title>
+    <link rel="stylesheet" href="css/trip1.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="menu">
+        <!-- home -->
+        <section class="container">
+            <div class="buttons">
+                <a href="index.html" class="btn-1">
+                    <img src="images/homegray.png" id="home">
+                </a>
+                <a href="trip2.html" class="btn-2" id="btncolor">&nbsp  PVG</a>    
+            </div>
+        </section>
+            
+        <div class="inner">
+            <!-- 영상 -->
+            <video id="video" preload="auto" autoplay loop muted>
+                <source src="video/bki.mp4" type="video/mp4">
+            </video><br><br><br><br>
+            <!-- 지도 -->
+            <button id="locationBtn" onclick="btn1()">&nbsp;&nbsp;&nbsp;kotakinabalu</button>
+            <br><br><br><br>
+        </div> 
+        <div class="slide_wrapper">
+            <ul class="slides">
+                <li><img src="images/BKI/bki1.jpg" alt="" width="300px" height="300px"></li>
+                <li><img src="images/BKI/bki2.jpg" alt="" width="300px" height="300px"></li>
+                <li><img src="images/BKI/bki3.jpg" alt="" width="300px" height="300px"></li>
+                <li><img src="images/BKI/bki4.jpg" alt="" width="300px" height="300px"></li>
+                <li><img src="images/BKI/bki5.jpg" alt="" width="300px" height="300px"></li>
+                <li><img src="images/BKI/bki6.jpg" alt="" width="300px" height="300px"></li>
+                <li><img src="images/BKI/bki7.jpg" alt="" width="300px" height="300px"></li>
+                <li><img src="images/BKI/bki8.jpg" alt="" width="300px" height="300px"></li>
+                <li><img src="images/BKI/bki9.jpg" alt="" width="300px" height="300px"></li>
+                <li><img src="images/BKI/bki10.jpg" alt="" width="300px" height="300px"></li>
+                <li><img src="images/BKI/bki11.jpg" alt="" width="300px" height="300px"></li>
+                <li><img src="images/BKI/bki12.jpg" alt="" width="300px" height="300px"></li>
+                <li><img src="images/BKI/bki13.jpg" alt="" width="300px" height="300px"></li>
+                <li><img src="images/BKI/bki14.jpg" alt="" width="300px" height="300px"></li>
+                <li><img src="images/BKI/bki15.jpg" alt="" width="300px" height="300px"></li>
+                <li><img src="images/BKI/bki16.jpg" alt="" width="300px" height="300px"></li>
+                <li><img src="images/BKI/bki17.jpg" alt="" width="300px" height="300px"></li>
+                <li><img src="images/BKI/bki18.jpg" alt="" width="300px" height="300px"></li>
+                <li><img src="images/BKI/bki19.jpg" alt="" width="300px" height="300px"></li>
+            </ul>
+        </div>
+        <p class="controls">
+            <span class="prev">prev</span>
+            <span class="next">next</span>
+        </p>
+    </div>
+
+    <!-- 구글맵 iframe -->
+    <script>
+    window.btn1 = function() {
+        popup = document.createElement("div");
+        iframe = document.createElement("iframe");
+        closeBtn = document.createElement("button");
+       
+        iframe.src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7986.5191223818065!2d116.49186574874683!3d6.493013259130803!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwMjknMzUuMCJOIDExNsKwMjknMzMuMCJF!5e1!3m2!1sko!2skr!4v1616057205945!5m2!1sko!2skr";
+        iframe.id = "view";
+        popup.id = "popup";
+        closeBtn.id = "closeBtn";
+        closeBtn.innerHTML = "close";
+       
+        popup.appendChild(iframe);
+        popup.appendChild(closeBtn);
+        document.body.appendChild(popup);
+    
+        //창 닫기
+        closeBtn.onclick = function() {
+        document.body.removeChild(popup);
+        }
+    };
+
+        //갤러리
+        var slides = document.querySelector('.slides'),
+            slide = document.querySelectorAll('.slides li'),
+            currentIdx = 0,
+            slideCount = slide.length,
+            prevBtn = document.querySelector('.prev'),
+            slideWidth = 300,
+            slideMargin = 30,
+            nextBtn = document.querySelector('.next');
+
+            slides.style.width = (slideWidth + slideMargin)*slideCount - slideMargin +'px';
+
+            // 옆으로 옮겨지는 함수
+            function moveSlide(num) {
+                slides.style.left = -num *330 + 'px';
+                currentIdx = num;
+            }
+            //next버튼
+            nextBtn.addEventListener('click', function(){
+                if(currentIdx < slideCount -3) { //옆으로 더 안넘어가게 -3
+                moveSlide(currentIdx + 1);
+                }else {
+                    moveSlide(0);
+                }
+            });
+
+            //prev버튼
+            prevBtn.addEventListener('click', function(){
+                if(currentIdx > 0) { 
+                moveSlide(currentIdx -1);
+                }else {
+                    moveSlide(slideCount - 3);
+                }
+            });
+    
+    </script>
+
+</body>
+</html>
