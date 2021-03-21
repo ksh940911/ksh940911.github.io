@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/index2.css">
+    <title>김상훈이 눈데</title>
+</head>
+<body>
+    <div id="main">
+        <span  id="admin" onclick="admin();">관리자</span>
+        <div id="introduce">
+            <a href="introduce.html" title="프로필" class="link">
+                <img src="images/자기소개.png" class="icon">
+                <div class="screen1" >
+                    <p class="top move">
+                        자기소개
+                    </p>
+                    <p class="bottom move">
+                        - 생일<br>
+                        - 취미<br>
+                        - 인사
+                    </p>
+                </div>
+            </a>
+        </div>
+
+        <div id="history">
+            <a href="history1.html" title="약력" class="link">
+                <img src="images/일대기.png" class="icon">
+                <div class="screen1" >
+                    <p class="top move">
+                        일대기
+                    </p>
+                    <p class="bottom move">
+                        - 대학생<br>
+                        - 취준생<br>
+                        - 회사원
+                    </p>
+                </div>
+            </a>
+        </div>
+
+        <div id="trip">
+            <a href="trip1.html" title="여행기록" class="link">
+                <img src="images/여행.png" class="icon">
+                <div class="screen1" >
+                    <p class="top move">
+                        여행
+                    </p>
+                    <p class="bottom move">
+                        - BKI<br>
+                        - PVG<br>
+                        - HKT<br>
+                        - FUK
+                    </p>
+                </div>
+            </a>
+        </div>
+
+        <div id="roadmap">
+            <a href="roadmap.html" title="개발자로드맵" class="link">
+                <img src="images/로드맵.png" class="icon">
+                <div class="screen1" >
+                    <p class="top move">
+                        로드맵
+                    </p>
+                    <p class="bottom move">
+                        - 배운것<br>
+                        - 배울것<br>
+                        - 관심사
+                    </p>
+                </div>
+            </a>
+        </div>
+
+        <div id="signup">Copyright © 김상훈 All Right Reserved
+            <img src="images/signup.png" id="signupimg" onclick="signup();"></a>
+            <nav>
+                <ul id="menu">
+                    <li>
+                        <a href="https://github.com/ksh940911" title="깃허브" target="_blank">
+                        <img src="images/github.png"></a>
+                    </li>
+                    <li>
+                        <a href="https://velog.io/@kchief" title="벨로그" target="_blank">
+                        <img src="images/velog.jpg"></a>
+                    </li>
+                    <li>
+                        <a href="https://blog.naver.com/ksh940911" title="블로그" target="_blank">
+                        <img src="images/blog.jpg"></a>
+                    </li>
+                </ul>
+              </nav>
+        </div>
+    </div>
+    <script>
+        function signup(){
+            var signup = window.open("signup.html", "signup", "width=550, height=600, top=65, left=680");
+            signup.moveBy(100,100)
+        }
+        function admin(){
+            window.open("admin.html","administrator","width=1024, height=810, top=0, left=440");
+            signup.moveBy(100,100)
+        }
+    </script>
+    <style>
+        #main {
+            background: url('images/background.jpg') center center/cover no-repeat scroll;
+        }
+    </style>
+</body>
+</html>

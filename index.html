@@ -4,109 +4,80 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/jquery-3.6.0.js"></script>
     <link rel="stylesheet" href="css/index.css">
-    <title>김상훈이 눈데</title>
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+    <title>판도라의 상자</title>
+    <script>
+    var guardian = confirm("김상훈에게 초대받으셨습니까?")
+    function check() {
+        if(guardian != true){
+            alert("입장이 거절되었습니다.");
+            document.write("<h1>Rejected</h1>");
+            remove().check();
+        }
+    }
+    </script>
 </head>
-<body>
-    <div id="main">
-        <span  id="admin" onclick="admin();">관리자</span>
-        <div id="introduce">
-            <a href="introduce.html" title="프로필" class="link">
-                <img src="images/자기소개.png" class="icon">
-                <div class="screen1" >
-                    <p class="top move">
-                        자기소개
-                    </p>
-                    <p class="bottom move">
-                        - 생일<br>
-                        - 취미<br>
-                        - 인사
-                    </p>
-                </div>
-            </a>
+<body onload="check();">
+    <audio src="audio/key.mp3" autoplay></audio>
+    <audio id="afteraudio"></audio>
+    <div id="after">
+        <div class="step1">
+            <img src="images/box_close.jpg" class="boxclose">
+            <img src="images/box_open.jpg" class="boxopen">
+            <img src="images/box_key.png" class="boxkey">
         </div>
-
-        <div id="history">
-            <a href="history1.html" title="약력" class="link">
-                <img src="images/일대기.png" class="icon">
-                <div class="screen1" >
-                    <p class="top move">
-                        일대기
-                    </p>
-                    <p class="bottom move">
-                        - 대학생<br>
-                        - 취준생<br>
-                        - 회사원
-                    </p>
-                </div>
-            </a>
-        </div>
-
-        <div id="trip">
-            <a href="trip1.html" title="여행기록" class="link">
-                <img src="images/여행.png" class="icon">
-                <div class="screen1" >
-                    <p class="top move">
-                        여행
-                    </p>
-                    <p class="bottom move">
-                        - BKI<br>
-                        - PVG<br>
-                        - HKT<br>
-                        - FUK
-                    </p>
-                </div>
-            </a>
-        </div>
-
-        <div id="roadmap">
-            <a href="roadmap.html" title="개발자로드맵" class="link">
-                <img src="images/로드맵.png" class="icon">
-                <div class="screen1" >
-                    <p class="top move">
-                        로드맵
-                    </p>
-                    <p class="bottom move">
-                        - 배운것<br>
-                        - 배울것<br>
-                        - 관심사
-                    </p>
-                </div>
-            </a>
-        </div>
-
-        <div id="signup">Copyright © 김상훈 All Right Reserved
-            <img src="images/signup.png" id="signupimg" onclick="signup();"></a>
-            <nav>
-                <ul id="menu">
-                    <li>
-                        <a href="https://github.com/ksh940911" title="깃허브" target="_blank">
-                        <img src="images/github.png"></a>
-                    </li>
-                    <li>
-                        <a href="https://velog.io/@kchief" title="벨로그" target="_blank">
-                        <img src="images/velog.jpg"></a>
-                    </li>
-                    <li>
-                        <a href="https://blog.naver.com/ksh940911" title="블로그" target="_blank">
-                        <img src="images/blog.jpg"></a>
-                    </li>
-                </ul>
-              </nav>
-        </div>
+        <img id="afterimg"></img>
+    </div>
+    <div class="step2">
+        <a href="index2.html" title="Enter" id="enter">
+            <img src="images/enter.PNG" id="enterimg">
+        </a>
     </div>
     <script>
-        function signup(){
-            window.open("signup.html", "signup", "width=550, height=600, top=140, left=415");
-        }
-        function admin(){
-            window.open("admin.html","administrator","width=1024, height=768, top=100, left=174");
-        }
+    $("body").hide(), guardian != false && $("body").show();
+    $(".boxkey").on('click', function(e){
+        $(".boxkey").css({
+            "animation-name" : "shaking",
+            "animation-duration" : "3s",
+        })
+        $(".boxclose").css({
+            "animation-name" : "boxshake",
+            "animation-duration" : "3s",
+        })
+        $("#afteraudio").attr("src", "audio/box.mp3")
+        document.getElementById("afteraudio").play()
+    })
+    $(".boxclose").on('click', function(e){
+        $("img").remove(".boxclose");
+        $("img").remove(".boxkey");
+        $("#afterimg").attr("src", "images/light.jpg")
+        $(".step2").delay(400).fadeIn(1200);
+        $("#afterimg").css({
+            "width" : "150px",
+            "height": "100px",
+            "top": "350px",
+            "left": "437px",
+            "opacity" : "0",
+            "position" : "absolute",
+            "z-index" : "5",
+            "animation-name" : "shining",
+            "animation-duration" : "0.4s",
+            "animation-delay" : "1.6s",
+            "animation-fillmode" : "backwards"
+        })
+        $("#enterimg").css({
+            "animation-name" : "twinkle",
+            "animation-duration" : "2s",
+            "animation-delay" : "6s",
+            "animation-iteration-count" : "infinite"
+        })
+        $(".step1").delay(401).fadeOut(0);
+        $(".step2").delay(400).fadeIn(1000).fadeOut(1000);
+        $("#enterimg").delay(8500).fadeIn(4500);
+        $(".step2").delay(2500).fadeIn(3000);
+    })
     </script>
-    <style>
-        #main {
-            background: url('images/background.jpg') center center/cover no-repeat scroll;
-        }
-    </style>
 </body>
 </html>

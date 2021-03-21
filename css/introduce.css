@@ -244,7 +244,7 @@ background: white;
 
         /* 버튼역할 */
         .menu {
-            width: 300px;
+            width: 280px;
             height: 30px;
             background: rgb(206, 213, 193);
             color: rgb(148, 146, 146);
@@ -252,8 +252,7 @@ background: white;
             text-align: center;
             border: 3px solid rgb(171, 171, 171);
             cursor: pointer;
-            margin-left: 21em;
-            margin-bottom: 15px;
+            margin: 7.5px auto;
        
         }
         /* 상자 */
@@ -264,6 +263,7 @@ background: white;
             display: none;
             border-radius: 30px;
             margin-left: 16em;
+            margin:0 auto;
 
         }
 
